@@ -1,0 +1,5 @@
+#delete all failed pods in all namespaces from Kubernetes
+kubectl get pods -A | grep Evicted | awk '{print $1}' | xargs kubectl delete pod
+
+#Get all clusterrolebindings matching a certian pattern in the name and export to single yaml definition manifest file
+kubectl get clusterrolebinding |grep view |awk '{print $1}' | xargs kubectl get clusterrolebinding -oyaml >cluster07/clusterrole/all-view-clusterrolebindings.yaml
