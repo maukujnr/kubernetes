@@ -31,7 +31,7 @@ for namespace in $namespaces
 do
 printf "\n Namespace the role binding will be configured to is: '$namespace' ...\n"
 
-	sed  "s/VARroleVAR/$role/g; s/VARadgroupnameVAR/$groupname/g; s/VARnamespaceVAR/$namespace/g; s/VARadgroupidVAR/$adgroupid/g" rolebindings/templates/adgroups-clusterviewRB-template.dat > command
+	sed  "s/VARroleVAR/$role/g; s/VARadgroupnameVAR/$groupname/g; s/VARnamespaceVAR/$namespace/g; s/VARadgroupidVAR/$adgroupid/g" adgroups-clusterviewRB-template.dat > command
 
 filename=${namespace}_${groupname}.yaml
 	
@@ -43,13 +43,13 @@ printf "\n Applying the RoleBinding definition file '$filename' ....\n\n"
 	then
 		printf "\n '$role' bound successfully to ADGroup '$groupname' for the namespace '$namespace' \n\n"
 		
-		mv command rolebindings/output/$filename	
+		mv command $filename	
 
 	else
 		printf "Error binding $role for $groupname" 
 
 	fi
 	
-    #rm -f command
+    rm -f command
 
 done
