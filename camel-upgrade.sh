@@ -1,3 +1,12 @@
+#!/bin/bash
+<<COMMENT
+Script to carry out camel upgrade;
+Assumptions: 
+1. You are using a Ubuntu or debian client pc to run the script from
+2. Already have a kubernetes cluster v1.20 and above setup
+3. the namespace to install camel already exists; alternatively, use the default namespace.
+COMMENT
+
 ###install camel-k client on the linux pc from where to run the  kamel upgrade commands
 
 #As an Example, I download camek-k client version 1.6.0 below since I am going to update camel to v1.6.0
